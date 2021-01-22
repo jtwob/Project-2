@@ -32,8 +32,6 @@ app.engine(
 
 app.set("view engine", "handlebars");
 
-//app.use("/", routes);
-
 // Requiring routes for Passport
 require("./routes/html-routes.js")(app);
 require("./routes/signup-login-api-routes.js")(app);
