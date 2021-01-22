@@ -1,6 +1,5 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
-const routes = require("./controllers/controller");
 
 //Requiring npm packages for passport
 const session = require("express-session");
@@ -42,5 +41,5 @@ require("./routes/connection-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 
 db.sequelize.sync({ force: true }).then(() => {
-  app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
+  app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
 });
