@@ -17,7 +17,9 @@ app.use(express.json());
 app.use(express.static(__dirname + "/public"));
 
 //We need to use sessions to keep track of our user's login status
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -36,6 +38,8 @@ app.set("view engine", "handlebars");
 // Requiring routes for Passport
 require("./routes/html-routes.js")(app);
 require("./routes/signup-login-api-routes.js")(app);
+require("./routes/connection-api-routes.js")(app);
+require("./routes/user-api-routes.js")(app);
 
 db.sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
