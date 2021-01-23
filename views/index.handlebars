@@ -1,81 +1,82 @@
 <nav>
-    <div class="nav-wrapper">
-        <a href="#!" class="brand-logo center">U-Connect</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Register</a></li>
-          </ul>
-    </div>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo center">U-Connect</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Login</a></li>
+      <li><a href="#">Register</a></li>
+    </ul>
+  </div>
 </nav>
-    
+
 <div class="container-head">
-    <img class="responsive-img" src="/img/Bokeh-full-width-banner.jpg" width="100%">
-        <div class="content" style="text-align: center;">
-             
-            <p>Where people are connected together</p>
+  <img class="responsive-img" src="/img/Bokeh-full-width-banner.jpg" width="100%">
+  <div class="content" style="text-align: center;">
 
-        </div>
+    <p>Where people are connected together</p>
 
-        <div class="container center">     
-            <div class="row">
-                    
-                <div class="col s12 m4 l3"> <!-- Note that "m4 l3" was added -->
-                    <div class="col md-3">      
-                             <form action="/" class="create" method="POST">
-                                  <div class="input-field col s12">
-                                    <input placeholder="Full Name:" id="full_name" type="text" class="validate">  
-                                  </div>
-                                  <div class="input-field col s12">
-                                    <input placeholder="Level:" id="level" type="text" class="validate">  
-                                  </div>
-                                  <div class="input-field col s12">
-                                    <input placeholder="Role:" id="role" type="text" class="validate">  
-                                  </div>
-                                  <div class="input-field col s12">
-                                    <input placeholder="Industry:" id="industry" type="text" class="validate">  
-                                  </div>
-                                  <div class="input-field col s12">
-                                    <input placeholder="Company:" id="company" type="text" class="validate">  
-                                  </div>
-                                  <div class="input-field col s12">
-                                    <input placeholder="Cost:" id="cost" type="text" class="validate">  
-                                  </div>
-                                <button type="submit" class="btn btn-small">Add</button>
-                            </form>
-                    </div>
-                </div>
-                      
-                <div class="col s12 m8 l9"> <!-- Note that "m8 l9" was added -->
-                    <div class="col-sm-4 col-md-12 col-lg-4">
-                        <div class="card">
-                            <div class="card-content">
-                              <span class="card-title"></span>
-                              <ul>
-                                  {{#each connections}}
-                                   <li> 
-                                    <form action="/{{this.id}}?_method=PUT" method="POST" class="update-button">
-                                      Name:{{this.fullname}}
-                                      Role:{{this.role}}
-                                      Industry:{{this.industry}}
-                                      Company:{{this.company}}
-                                      Cost:{{this.cost}}
-                                    </form>
-                                  </li>
-                                  {{/each}}
-                              </ul>
-                            </div>
+  </div>
 
-                        </div>
-                    </div>
-                </div>
+  <div class="container center">
+    <div class="row">
+
+      <div class="col s12 m4 l3">
+        <!-- Note that "m4 l3" was added -->
+        <div class="col md-3">
+          <form>
+            <div class="input-field col s12">
+              <input placeholder="Full Name:" id="name" type="text" class="validate">
             </div>
+            <div class="input-field col s12">
+              <input placeholder="Level:" id="level" type="text" class="validate">
+            </div>
+            <div class="input-field col s12">
+              <input placeholder="Role:" id="role" type="text" class="validate">
+            </div>
+            <div class="input-field col s12">
+              <input placeholder="Industry:" id="industry" type="text" class="validate">
+            </div>
+            <div class="input-field col s12">
+              <input placeholder="Company:" id="company" type="text" class="validate">
+            </div>
+            <div class="input-field col s12">
+              <input placeholder="Cost:" id="cost" type="text" class="validate">
+            </div>
+            <button type="submit" data-userId={{this.userId}} class="connectBtn btn btn-small">Add</button>
+          </form>
         </div>
+      </div>
+
+      <div class="col s12 m8 l9">
+        <!-- Note that "m8 l9" was added -->
+        <div class="col-sm-4 col-md-12 col-lg-4">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title"></span>
+              <ul>
+                {{#each connections}}
+                <li>
+                  <form action="/{{this.id}}?_method=PUT" method="POST" class="update-button">
+                    Name:{{this.fullname}}
+                    Role:{{this.role}}
+                    Industry:{{this.industry}}
+                    Company:{{this.company}}
+                    Cost:{{this.cost}}
+                  </form>
+                </li>
+                {{/each}}
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <footer class="fixed-bottom py-4">
-    <div class="text-center">
-        <small>Copy &copy;</small>
-    </div>
-  </footer>
-
+  <div class="text-center">
+    <small>Copy &copy;</small>
+  </div>
+</footer>
