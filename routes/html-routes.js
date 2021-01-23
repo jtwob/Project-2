@@ -30,7 +30,8 @@ module.exports = function (app) {
     //   include: [db.User],
     // }).then((data) => {
     console.log(`GETTING ALL CONNECTION`);
-    db.Connection.findAll().then((data) => {
+    db.Connection.findAll({raw:true})
+    .then((data) => {
       console.log(` `);
       console.log(` `);
       console.log(`DATA RETURNED: ${data}`);
