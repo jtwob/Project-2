@@ -19,6 +19,6 @@ $(document).ready(function () {
       UserId: id,
     };
 
-    $.post("/api/connection", body);
+    $.post("/api/connection", body).then(() => location.reload());
   });
 });
