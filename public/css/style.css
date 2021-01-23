@@ -43,6 +43,7 @@ nav{
     width: 200px;
     height: 250px;
     background-color: rgba(139, 97, 55, 0);
+
 }
  
 
@@ -62,7 +63,7 @@ footer {
 
 li{
     text-align: left;
-    color: rgb(189, 153, 55);
+    color: black;
 
 }
 
