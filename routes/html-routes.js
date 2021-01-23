@@ -8,18 +8,21 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function (app) {
   app.get("/", function (req, res) {
     // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
+    // if (req.user) {
+    //   res.render("index");
+    //   //res.redirect("/members");
+    // }
+    //res.sendFile(path.join(__dirname, "../public/signup.html"));
+    res.render("signup");
   });
 
   app.get("/login", function (req, res) {
     // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    // if (req.user) {
+    //   res.redirect("/members");
+    // }
+    //res.sendFile(path.join(__dirname, "../public/login.html"));
+    res.render("login");
   });
 
   // Here we've add our isAuthenticated middleware to this route.
@@ -30,21 +33,21 @@ module.exports = function (app) {
     //   include: [db.User],
     // }).then((data) => {
     console.log(`GETTING ALL CONNECTION`);
-    db.Connection.findAll({raw:true})
-    .then((data) => {
-      console.log(` `);
-      console.log(` `);
-      console.log(`DATA RETURNED: ${data}`);
-      console.log(` `);
-      console.log(` `);
+    db.Connection.findAll({ raw: true })
+      .then((data) => {
+        console.log(` `);
+        console.log(` `);
+        console.log(`DATA RETURNED: ${data}`);
+        console.log(` `);
+        console.log(` `);
 
-      const allConnections = {
-        connections: data,
-        userId: req.user.id,
-      };
+        const allConnections = {
+          connections: data,
+          userId: req.user.id,
+        };
 
-      // console.log(allConnections.userId);
-      res.render("index", allConnections);
-    });
+        // console.log(allConnections.userId);
+        res.render("index", allConnections);
+      });
   });
 };
