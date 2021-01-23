@@ -21,4 +21,12 @@ $(document).ready(function () {
 
     $.post("/api/connection", body).then(() => location.reload());
   });
+
+
+  //Using button on card to delete connection
+  $("#cardsColumn").on("click", ".deleteBtn", (e) => {
+    e.preventDefault();
+    $.ajax({ url: `/api/connection/${e.target.getAttribute("data-userId")}`, method: "DELETE" }).then(() => location.reload());
+  });
+
 });
