@@ -1,7 +1,9 @@
 $(document).ready(function () {
   // Getting references to our form and input
   var signUpForm = $("form.signup");
-  var nameInput = $("input#name-input")
+  var firstNameInput = $("input#first-name-input");
+  var lastNameInput = $("input#last-name-input");
+
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
 
@@ -9,7 +11,8 @@ $(document).ready(function () {
   signUpForm.on("submit", function (event) {
     event.preventDefault();
     var userData = {
-      name: nameInput.val().trim(),
+      firstname: firstNameInput.val().trim(),
+      lastname: lastNameInput.val().trim(),
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
     };
@@ -20,7 +23,8 @@ $(document).ready(function () {
     // If we have an email and password, run the signUpUser function
     // signUpUser(userData.email, userData.password);
     signUpUser(userData);
-    nameInput.val("");
+    firstNameInput.val("");
+    lastNameInput.val("");
     emailInput.val("");
     passwordInput.val("");
   });
