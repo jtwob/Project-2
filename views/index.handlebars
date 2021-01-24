@@ -38,7 +38,7 @@
             <input placeholder="Company:" id="company" type="text" class="validate">
           </div>
           <div class="input-field col s12">
-            <input placeholder="Cost:" id="cost" type="text" class="validate">
+            <input placeholder="Cost:" id="cost" type="number" class="validate">
           </div>
           <button type="submit" data-userId={{this.userId}} class="connectBtn btn btn-small">Add</button>
         </form>
@@ -53,15 +53,18 @@
           <div class="card-content">
             <ul>
               <li>
-                {{!-- <form action="/{{this.id}}?_method=PUT" method="POST" class="update-button"> --}}
                 <form>
                   <h5>Name:{{this.name}}</h5>
                   Role:{{this.role}}
                   Industry:{{this.industry}}
                   Company:{{this.company}}
                   Cost:{{this.cost}}
-                  <button type="submit" data-userId={{this.id}} class="updateBtn btn btn-small">Update</button>
+                  {{!-- if the connection is created by the account, allow update and delete --}}
+                  {{#if this.myConnection}}
+                  <button data-target="modal1" data-userId={{this.id}}
+                    class="updateBtn btn modal-trigger">Update</button>
                   <button type="submit" data-userId={{this.id}} class="deleteBtn btn btn-small">Delete</button>
+                  {{/if}}
                 </form>
               </li>
 
@@ -75,6 +78,35 @@
   </div>
 </div>
 </div>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <form>
+      <div class="input-field col s12">
+        <input placeholder="Full Name:" id="mName" type="text" class="validate">
+      </div>
+      <div class="input-field col s12">
+        <input placeholder="Level:" id="mLevel" type="text" class="validate">
+      </div>
+      <div class="input-field col s12">
+        <input placeholder="Role:" id="mRole" type="text" class="validate">
+      </div>
+      <div class="input-field col s12">
+        <input placeholder="Industry:" id="mIndustry" type="text" class="validate">
+      </div>
+      <div class="input-field col s12">
+        <input placeholder="Company:" id="mCompany" type="text" class="validate">
+      </div>
+      <div class="input-field col s12">
+        <input placeholder="Cost:" id="mCost" type="number" class="validate">
+      </div>
+      <button type="submit" data-userId={{this.userId}} data-connectionID="" id="updateSubmitBtn"
+        class="btn btn-small modal-action modal-close">Update Info</button>
+    </form>
+  </div>
+</div>
+
 
 <footer class="fixed-bottom py-4">
   <div class="text-center">
