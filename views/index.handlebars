@@ -1,0 +1,131 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo center">U-Connect</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Login</a></li>
+      <li><a href="#">Register</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-head">
+  <img class="responsive-img" src="/img/Bokeh-full-width-banner.jpg" width="100%">
+
+
+</div>
+
+<div class="container center">
+  <div class="row">
+
+    <div class="col s12 m4 l3">
+      <!-- Note that "m4 l3" was added -->
+      <div class="col md-3">
+        <form>
+          <div class="input-field col s12">
+            <input placeholder="Full Name:" id="name" type="text" class="validate">
+          </div>
+          <div class="input-field col s12">
+            <input placeholder="Level:" id="level" type="text" class="validate">
+          </div>
+          <div class="input-field col s12">
+            <input placeholder="Role:" id="role" type="text" class="validate">
+          </div>
+          <div class="input-field col s12">
+            <input placeholder="Industry:" id="industry" type="text" class="validate">
+          </div>
+          <div class="input-field col s12">
+            <input placeholder="Company:" id="company" type="text" class="validate">
+          </div>
+          <div class="input-field col s12">
+            <input placeholder="Cost:" id="cost" type="number" class="validate">
+          </div>
+          <button type="submit" data-userId={{this.userId}} id="addBtn" class="btn btn-small">Add</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="col s12 m8 l9">
+      <!-- Note that "m8 l9" was added -->
+      <div class="col-sm-4 col-md-12 col-lg-4" id="cardsColumn">
+        {{#each connections}}
+        <div class="card">
+          <div class="card-content">
+            <ul>
+              <li>
+                <form>
+                  <h5>Name:{{this.name}}</h5>
+                  Role:{{this.role}}
+                  Industry:{{this.industry}}
+                  Company:{{this.company}}
+                  Cost:{{this.cost}}
+                  {{!-- if the connection is created by the account, allow update and delete --}}
+                  {{#if this.myConnection}}
+                  <button data-target="modal1" data-connectionId={{this.id}}
+                    class="updateBtn btn modal-trigger">Update</button>
+                  <button type="submit" data-connectionId={{this.id}} class="deleteBtn btn btn-small">Delete</button>
+                  {{else}}
+                  <button data-target="modal2" data-connectionId={{this.id}}
+                    class="salesBtn btn modal-trigger">Purchase</button>
+                  {{/if}}
+                </form>
+              </li>
+
+            </ul>
+          </div>
+
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <form>
+      <div class="input-field col s12">
+        <input placeholder="Full Name:" id="mName" type="text" class="validate">
+      </div>
+      <div class="input-field col s12">
+        <input placeholder="Level:" id="mLevel" type="text" class="validate">
+      </div>
+      <div class="input-field col s12">
+        <input placeholder="Role:" id="mRole" type="text" class="validate">
+      </div>
+      <div class="input-field col s12">
+        <input placeholder="Industry:" id="mIndustry" type="text" class="validate">
+      </div>
+      <div class="input-field col s12">
+        <input placeholder="Company:" id="mCompany" type="text" class="validate">
+      </div>
+      <div class="input-field col s12">
+        <input placeholder="Cost:" id="mCost" type="number" class="validate">
+      </div>
+      <button type="submit" data-userId={{this.userId}} data-connectionID="" id="updateSubmitBtn"
+        class="btn btn-small modal-action modal-close">Update Info</button>
+    </form>
+  </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal2" class="modal">
+  <div class="modal-content">
+    <form>
+      <h5>Are you sure you want to purchase this connection?</h5>
+      <button type="submit" data-userId={{this.userId}} data-connectionID="" id="modalYesBtn"
+        class="btn btn-small modal-action modal-close">Yes</button>
+      <button type="submit" data-userId={{this.userId}} data-connectionID="" id="modalNoBtn"
+        class="btn btn-small modal-action modal-close">No</button>
+    </form>
+  </div>
+</div>
+
+
+<footer class="fixed-bottom py-4">
+  <div class="text-center">
+    <small>Copy &copy;</small>
+  </div>
+</footer>

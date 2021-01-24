@@ -1,0 +1,72 @@
+html{
+    background-image: url(/img/mA-Orange-1-blurred-background-10-2000x1250.jpg) ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.brand-logo{
+    font-family: 'Monoton', cursive;
+}
+
+.container-head {
+    max-width: 100%; 
+    margin-left: 0;
+}
+
+.container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    padding-top: 40px ;
+    height: 100%;
+    
+    background-color: rgba(139, 97, 55, 0);
+}
+
+nav{
+    background-color: black ;
+}
+
+
+.collection{
+    margin-top: 40px;
+}
+
+.card {
+    float: left;
+    margin-top: 10px;
+    margin-left: 40px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    width: 200px;
+    height: 250px;
+    background-color: rgba(139, 97, 55, 0);
+
+}
+ 
+
+p{
+    font-size: 35px;
+    color: rgb(192, 189, 189);
+    padding-top: 100px;
+}
+
+footer {
+    background-color: black;
+    color: whitesmoke;
+}
+.text-center {
+    text-align: center;
+}
+
+li{
+    text-align: left;
+    color: black;
+
+}
+
+.card-content{
+    color: black;
+}
