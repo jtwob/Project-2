@@ -40,7 +40,7 @@
           <div class="input-field col s12">
             <input placeholder="Cost:" id="cost" type="number" class="validate">
           </div>
-          <button type="submit" data-userId={{this.userId}} class="connectBtn btn btn-small">Add</button>
+          <button type="submit" data-userId={{this.userId}} id="addBtn" class="btn btn-small">Add</button>
         </form>
       </div>
     </div>
@@ -61,9 +61,12 @@
                   Cost:{{this.cost}}
                   {{!-- if the connection is created by the account, allow update and delete --}}
                   {{#if this.myConnection}}
-                  <button data-target="modal1" data-userId={{this.id}}
+                  <button data-target="modal1" data-connectionId={{this.id}}
                     class="updateBtn btn modal-trigger">Update</button>
-                  <button type="submit" data-userId={{this.id}} class="deleteBtn btn btn-small">Delete</button>
+                  <button type="submit" data-connectionId={{this.id}} class="deleteBtn btn btn-small">Delete</button>
+                  {{else}}
+                  <button data-target="modal2" data-connectionId={{this.id}}
+                    class="salesBtn btn modal-trigger">Purchase</button>
                   {{/if}}
                 </form>
               </li>
@@ -103,6 +106,19 @@
       </div>
       <button type="submit" data-userId={{this.userId}} data-connectionID="" id="updateSubmitBtn"
         class="btn btn-small modal-action modal-close">Update Info</button>
+    </form>
+  </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal2" class="modal">
+  <div class="modal-content">
+    <form>
+      <h5>Are you sure you want to purchase this connection?</h5>
+      <button type="submit" data-userId={{this.userId}} data-connectionID="" id="modalYesBtn"
+        class="btn btn-small modal-action modal-close">Yes</button>
+      <button type="submit" data-userId={{this.userId}} data-connectionID="" id="modalNoBtn"
+        class="btn btn-small modal-action modal-close">No</button>
     </form>
   </div>
 </div>

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 $(document).ready(function () {
   //Using the add button to add connection into database 
-  $(".connectBtn").click((e) => {
+  $("#addBtn").click((e) => {
     e.preventDefault();
     const id = e.target.getAttribute("data-userId");
     const name = $("#name").val().trim();
@@ -50,7 +50,7 @@ $(document).ready(function () {
   $('#updateSubmitBtn').click((e) => {
     e.preventDefault();
     const body = {
-      id: $('#updateSubmitBtn').attr('data-connectionID')
+      id: $('#updateSubmitBtn').attr('data-connectionId')
     }
 
     if ($('#mName').val() != "") {
@@ -79,8 +79,20 @@ $(document).ready(function () {
   //Using button on card to delete connection
   $("#cardsColumn").on("click", ".deleteBtn", (e) => {
     e.preventDefault();
-    $.ajax({ url: `/api/connection/${e.target.getAttribute("data-userId")}`, method: "DELETE" })
+    $.ajax({ url: `/api/connection/${e.target.getAttribute("data-connectionId")}`, method: "DELETE" })
       .then(() => location.reload());
   });
 
+  //Simulating a sale, delete a connection if confirmed purchase
+  $("#cardsColumn").on("click", ".salesBtn", (e) => {
+    e.preventDefault();
+    $("#modalYesBtn").attr('data-connectionId', e.target.getAttribute("data-connectionId"))
+  });
+
+  $("#modalYesBtn").click((e) => {
+    e.preventDefault();
+    $.ajax({ url: `/api/connection/${e.target.getAttribute("data-connectionId")}`, method: "DELETE" })
+      .then(() => location.reload());
+    e.target.setAttribute("data-connectionId", "");
+  });
 });
