@@ -11,7 +11,9 @@
 
 <div class="container-head">
   <img class="responsive-img" src="/img/Bokeh-full-width-banner.jpg" width="100%">
-
+<div class="head-center">
+  <h4 id="header">Where people are together to build the best connection!</h4>
+</div>
 
 </div>
 
@@ -62,11 +64,11 @@
                   {{!-- if the connection is created by the account, allow update and delete --}}
                   {{#if this.myConnection}}
                   <button data-target="modal1" data-connectionId={{this.id}}
-                    class="updateBtn btn modal-trigger">Update</button>
+                    class="updateBtn btn btn-small modal-trigger">Update</button>
                   <button type="submit" data-connectionId={{this.id}} class="deleteBtn btn btn-small">Delete</button>
                   {{else}}
                   <button data-target="modal2" data-connectionId={{this.id}}
-                    class="salesBtn btn modal-trigger">Purchase</button>
+                    class="salesBtn btn btn-small modal-trigger">Purchase</button>
                   {{/if}}
                 </form>
               </li>
@@ -111,7 +113,7 @@
 </div>
 
 <!-- Modal Structure -->
-<div id="modal2" class="modal">
+<div id="modal2" class="modal" >
   <div class="modal-content">
     <form>
       <h5>Are you sure you want to purchase this connection?</h5>

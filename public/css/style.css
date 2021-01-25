@@ -13,6 +13,19 @@ html{
 .container-head {
     max-width: 100%; 
     margin-left: 0;
+    position: relative;
+    text-align: center;
+}
+.head-center{
+    position: absolute;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#header{
+    font-family: 'Monoton', cursive;
+    word-spacing: 15px;
 }
 
 .container {
@@ -34,15 +47,20 @@ nav{
     margin-top: 40px;
 }
 
-.card {
+.card,
+ #modal1{
     float: left;
     margin-top: 10px;
     margin-left: 40px;
     padding-bottom: 20px;
     padding-top: 10px;
     width: 200px;
-    height: 250px;
+    height: 350px;
     background-color: rgba(139, 97, 55, 0);
+
+}
+#modal2{
+    background-color: rgba(139, 97, 55, 0.534);
 
 }
  
@@ -69,4 +87,16 @@ li{
 
 .card-content{
     color: black;
+}
+
+
+.deleteBtn,
+.updateBtn,
+.salesBtn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.center{
+    align-items: center;
 }
