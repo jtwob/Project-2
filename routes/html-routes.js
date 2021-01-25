@@ -14,22 +14,25 @@ module.exports = function (app) {
     res.render("login");
   });
 
+  app.get("/settings", function (req, res) {
+    res.render("settings");
+  });
+
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function (req, res) {
-    db.Connection.findAll({ raw: true })
-      .then((data) => {
-        if (data.length != 0) {
-          //Add the a field for whether the connection is with the current account
-          data.forEach(connection => {
-            connection['myConnection'] = (req.user.id === connection.UserId);
-          })
-        }
-        const allConnections = {
-          connections: data,
-          userId: req.user.id,
-        };
-        res.render("index", allConnections);
-      });
+    db.Connection.findAll({ raw: true }).then((data) => {
+      if (data.length != 0) {
+        //Add the a field for whether the connection is with the current account
+        data.forEach((connection) => {
+          connection["myConnection"] = req.user.id === connection.UserId;
+        });
+      }
+      const allConnections = {
+        connections: data,
+        userId: req.user.id,
+      };
+      res.render("index", allConnections);
+    });
   });
 };
