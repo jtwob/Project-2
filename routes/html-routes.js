@@ -15,7 +15,9 @@ module.exports = function (app) {
   });
 
   app.get("/logout", function (req, res) {
-    req.logout();
+    req.session.destroy(function (err) {
+      res.redirect("/");
+    });
   });
 
   app.get("/settings", isAuthenticated, function (req, res) {
