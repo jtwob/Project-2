@@ -55,9 +55,10 @@ nav{
     padding-bottom: 20px;
     padding-top: 10px; 
     width: 220px;
-    height: 400px;
+    height: 350px;
     background-color: rgba(139, 97, 55, 0);
     border: rgb(153, 104, 25) solid 1px;
+    position: relative;
 
 }
 #modal2,
@@ -90,15 +91,35 @@ li{
 
 .card-content{
     color: black;
+    
 }
 
 
-.deleteBtn,
-.updateBtn,
-.salesBtn {
+.deleteBtn{
+    position: absolute;
     margin-top: 10px;
     margin-bottom: 10px;
+    bottom:0;
+    right: 10px;
+
 }
+.salesBtn {
+    position: absolute;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    bottom:0;
+    margin-left: 30px;
+
+}
+.updateBtn{
+    position: absolute;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    bottom:0;
+    left: 10px;
+
+}
+
 
 .center{
     align-items: center;
