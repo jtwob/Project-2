@@ -1,5 +1,5 @@
 html{
-    background-image: url(/img/mA-Orange-1-blurred-background-10-2000x1250.jpg) ;
+    background-image: url(/img/background.jpg) ;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -47,19 +47,19 @@ nav{
     margin-top: 40px;
 }
 
-.card,
- #modal1{
+.card{
     float: left;
     margin-top: 10px;
     margin-left: 40px;
     padding-bottom: 20px;
     padding-top: 10px;
     width: 200px;
-    height: 350px;
+    height: 400px;
     background-color: rgba(139, 97, 55, 0);
 
 }
-#modal2{
+#modal2,
+#modal1{
     background-color: rgba(139, 97, 55, 0.534);
 
 }
