@@ -26,6 +26,7 @@ html{
 #header{
     font-family: 'Monoton', cursive;
     word-spacing: 15px;
+    color: rgb(88, 87, 87);
 }
 
 .container {
@@ -52,15 +53,17 @@ nav{
     margin-top: 10px;
     margin-left: 40px;
     padding-bottom: 20px;
-    padding-top: 10px;
-    width: 200px;
+    padding-top: 10px; 
+    width: 220px;
     height: 400px;
     background-color: rgba(139, 97, 55, 0);
+    border: rgb(153, 104, 25) solid 1px;
 
 }
 #modal2,
 #modal1{
-    background-color: rgba(139, 97, 55, 0.534);
+    background-color: rgba(139, 97, 55, 0.787);
+    border: rgb(153, 104, 25) solid 1px;
 
 }
  
