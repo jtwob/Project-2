@@ -14,8 +14,11 @@ module.exports = function (app) {
     res.render("login");
   });
 
-  app.get("/settings", function (req, res) {
-    res.render("settings");
+  app.get("/settings", isAuthenticated, function (req, res) {
+    const user = {
+      userId: req.user.id,
+    };
+    res.render("settings", user);
   });
 
   // Here we've add our isAuthenticated middleware to this route.

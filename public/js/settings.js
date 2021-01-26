@@ -1,23 +1,21 @@
 $(document).ready(function () {
-  var settingsForm = $("form.settings");
-  var nameInput = $("input#name-input");
-  var emailInput = $("input#email-input");
-  var passwordInput = $("input#password-input");
-
+  const settingsForm = $("form.settings");
   settingsForm.on("submit", function (event) {
     event.preventDefault();
-    var userData = {
-      name:
-        nameInput.val() === null
-          ? nameInput.getAttribute("data-name")
-          : nameInput.val().trim(),
-      email:
-        emailInput.val() === null
-          ? emailInput.getAttribute("data-email")
-          : emailInput.val().trim(),
-    };
+    var nameInput = $("input#name-input");
+    var emailInput = $("input#email-input");
+    var passwordInput = $("input#password-input");
+    var userId = $("#update-btn").attr("data-userId");
 
-    if (passwordInput.val() !== null) {
+    const userData = { id: userId };
+
+    if (nameInput.val() !== "") {
+      userData.name = nameInput.val().trim();
+    }
+    if (emailInput.val() !== "") {
+      userData.email = emailInput.val().trim();
+    }
+    if (passwordInput.val() !== "") {
       userData.password = passwordInput.val().trim();
     }
 
@@ -28,11 +26,13 @@ $(document).ready(function () {
   });
 
   function updateUser(userData) {
-    $.put("/api/user", userData)
-      .then(function (data) {
-        console.log(data);
-      })
-      .catch(handleUpdateError);
+    $.ajax({
+      url: "/api/user",
+      type: "PUT",
+      data: userData,
+    }).catch((err) => {
+      handleUpdateError(err);
+    });
   }
 
   function handleUpdateError(err) {

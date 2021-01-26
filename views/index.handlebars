@@ -4,7 +4,7 @@
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><a href="/members">Home</a></li>
       <li><a href="/login">Login</a></li>
-      <li><a href="/signup">Register</a></li>
+      <li><a href="/">Register</a></li>
       <li><a href="/settings">Settings</a></li>
     </ul>
   </div>
@@ -57,11 +57,11 @@
             <ul>
               <li>
                 <form>
-                  <h5>Name:{{this.name}}</h5>
-                  Role:{{this.role}}
-                  Industry:{{this.industry}}
-                  Company:{{this.company}}
-                  Cost:{{this.cost}}
+                  <h5>Name: {{this.name}}</h5>
+                  <h6>Role: {{this.role}}</h6>
+                  <h6>Industry: {{this.industry}}</h6>
+                  <h6>Company: {{this.company}}</h6>
+                  <h6>Cost: {{this.cost}}</h6>
                   {{!-- if the connection is created by the account, allow update and delete --}}
                   {{#if this.myConnection}}
                   <button data-target="modal1" data-connectionId={{this.id}}
