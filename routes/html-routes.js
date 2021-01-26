@@ -14,6 +14,10 @@ module.exports = function (app) {
     res.render("login");
   });
 
+  app.get("/logout", function (req, res) {
+    req.logout();
+  });
+
   app.get("/settings", isAuthenticated, function (req, res) {
     const user = {
       userId: req.user.id,
