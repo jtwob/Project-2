@@ -32,8 +32,9 @@ $(document).ready(function () {
   //Using update button to start a modal
   $("#cardsColumn").on("click", ".updateBtn", (e) => {
     e.preventDefault();
-    $.get(`/api/connection/${e.target.getAttribute("data-userId")}`).then(
+    $.get(`/api/connection/${e.target.getAttribute("data-connectionId")}`).then(
       (connection) => {
+        console.log(connection);
         //Setup the placeholders of the modal
         $("#mName").attr("placeholder", "Full Name: " + connection.name);
         $("#mLevel").attr("placeholder", "Level: " + connection.level);

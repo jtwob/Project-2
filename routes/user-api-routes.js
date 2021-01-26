@@ -1,4 +1,5 @@
 var db = require("../models");
+const bcrypt = require("bcryptjs");
 
 module.exports = function (app) {
   /**
@@ -35,6 +36,13 @@ module.exports = function (app) {
    *    id, + any updated fields
    */
   app.put("/api/user", (req, res) => {
+    if (req.body.password !== undefined) {
+      req.body.password = bcrypt.hashSync(
+        req.body.password,
+        bcrypt.genSaltSync(10),
+        null
+      );
+    }
     db.User.update(req.body, {
       where: {
         id: req.body.id,
