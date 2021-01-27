@@ -42,6 +42,6 @@ $(document).ready(function () {
 
   $("#logout").on("click", (e) => {
     $.get("/logout");
-    window.location.replace("/members");
+    window.location.replace("/");
   });
 });
