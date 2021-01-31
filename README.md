@@ -5,7 +5,7 @@
 The uConnect app is a platform for those seeking to buy and sell professional introductions. The app allows the user to create a profile and to create sellable connections. The app also allows the user to purchase connections other users have listed. uConnect is hosted on heroku, and features numerous technologies, including but not limited to; a sequelize handled database, user-data encryption, user session tracking, express servers, and more. The frontend of the website is designed with Materialize components on a handlebars.js framework. This application represents a minimum viable product with future development in progress.
 
 
-## Project Presentation:
+## Project Presentation :
 * [Presentation]()
 
 ## Screenshot of App:
